@@ -9,7 +9,7 @@ public class pattern {
             System.out.println();
             i++;
         }
-       //System.out.println();
+      // System.out.println();
         i=5;
         while(i!=0){
             for(int j=i;j>0;j--){
