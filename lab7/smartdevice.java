@@ -1,30 +1,21 @@
-public class smartdevice {
-    private String name;
-    private boolean isOn;
+public class SmartDevice {
 
-    public smartdevice(String name) {
+    String name;
+    boolean isOn;
+
+    // Constructor
+    public SmartDevice(String name) {
         this.name = name;
-        this.isOn = false;
+        this.isOn = false;   // default OFF
     }
 
+    // Toggle the power ON/OFF
     public void togglePower() {
         isOn = !isOn;
-        System.out.println(name + " turned " + (isOn ? "ON" : "OFF"));
     }
 
-   
+    // Display status (to be overridden by subclasses)
     public void displayStatus() {
-        System.out.println("Device: " + name + " | Power: " + (isOn ? "ON" : "OFF"));
-    }
-
-    
-    public String getName() {
-        return name;
-    }
-
-    public boolean isOn() {
-        return isOn;
+        System.out.println(name + " is " + (isOn ? "ON" : "OFF"));
     }
 }
-
-

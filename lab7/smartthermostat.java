@@ -1,35 +1,23 @@
-public class smartthermostat extends smartdevice {
-    private int temperature; // in degrees Celsius
+public class SmartThermostat extends SmartDevice {
 
-    public smartthermostat(String name, int initialTemp) {
+    int temperature;
+
+    public SmartThermostat(String name, int temperature) {
         super(name);
-        setTemperature(initialTemp);
+        this.temperature = temperature;
     }
 
-    public void increaseTemp(int delta) {
-        setTemperature(temperature + delta);
-        System.out.println(name + " temperature increased by " + delta + " -> " + temperature + "°C");
+    public void increaseTemp() {
+        temperature++;
     }
 
-    public void decreaseTemp(int delta) {
-        setTemperature(temperature - delta);
-        System.out.println(name + " temperature decreased by " + delta + " -> " + temperature + "°C");
-    }
-
-    private void setTemperature(int temp) {
-        // sensible bounds (optional): 5 to 35 °C
-        if (temp < 5) temp = 5;
-        if (temp > 35) temp = 35;
-        temperature = temp;
-    }
-
-    public int getTemperature() {
-        return temperature;
+    public void decreaseTemp() {
+        temperature--;
     }
 
     @Override
     public void displayStatus() {
-        String power = isOn ? "ON" : "OFF";
-        System.out.println("The " + name + " is " + power + ". Current temperature is set at " + temperature + "°C.");
+        System.out.println(name + " Thermostat is " + (isOn ? "ON" : "OFF") +
+                " and set to " + temperature + "°C");
     }
 }
